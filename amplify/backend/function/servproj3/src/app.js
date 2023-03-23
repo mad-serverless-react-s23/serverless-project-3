@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const axios = require('axios')
 
 // declare a new express app
 const app = express()
@@ -15,14 +16,16 @@ app.use(function(req, res, next) {
 });
 
 app.get('/coins', (req, res) => {
-  const coins = [
-    { name: 'AlphaCoin', symbol: 'ALCO', price_usd: "0.023" },
-    { name: 'BetaCoin', symbol: 'BETC', price_usd: "0.022" },
-    { name: 'ThetaCoin', symbol: 'THEC', price_usd: "0.1123239" }
-  ]
-  res.json({
-    coins
-  })
+  let apiUrl = `https://api.coinlore.com/api/tickers?start=0&limit=10`
+  
+  if (req.apiGateway && req.apiGateway.event.queryStringParameters) {
+    const { start = 0, limit = 10 } = req.apiGateway.event.queryStringParameters;
+    apiUrl = `https://api.coinlore.com/api/tickers/?start=${start}&limit=${limit}`;
+
+    axios.get(apiUrl).then(response => {
+      res.json({ coins: response.data.data })
+    }).catch(err => res.json({ error: err }));
+  };
 })
 
 app.get('/born', (req, res) => {
