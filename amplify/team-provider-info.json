@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "servproj3": {}
+        "servproj3": {
+          "deploymentBucketName": "amplify-serverlessproject3-dev-231312-deployment",
+          "s3Key": "amplify-builds/servproj3-5748666f557969356235-build.zip"
+        }
+      },
+      "api": {
+        "servproj3api": {}
       }
     }
   }
