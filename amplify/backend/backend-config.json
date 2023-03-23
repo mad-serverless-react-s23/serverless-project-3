@@ -1,0 +1,9 @@
+{
+  "function": {
+    "servproj3": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}

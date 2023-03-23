@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-serverlessproject3-dev-231312-authRole",
+      "UnauthRoleArn": "arn:aws:iam::230395760767:role/amplify-serverlessproject3-dev-231312-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::230395760767:role/amplify-serverlessproject3-dev-231312-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-serverlessproject3-dev-231312-deployment",
+      "UnauthRoleName": "amplify-serverlessproject3-dev-231312-unauthRole",
+      "StackName": "amplify-serverlessproject3-dev-231312",
+      "StackId": "arn:aws:cloudformation:us-east-2:230395760767:stack/amplify-serverlessproject3-dev-231312/08683160-c931-11ed-a47f-0af832fa066a",
+      "AmplifyAppId": "d1ji7imuznf2b"
+    },
+    "categories": {
+      "function": {
+        "servproj3": {}
+      }
+    }
+  }
+}
