@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/coins": {
+      "name": "/coins",
+      "lambdaFunction": "servproj3",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/born": {
+      "name": "/born",
+      "lambdaFunction": "servproj3",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
