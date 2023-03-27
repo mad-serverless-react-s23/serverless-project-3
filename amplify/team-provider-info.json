@@ -15,7 +15,7 @@
       "function": {
         "servproj3": {
           "deploymentBucketName": "amplify-serverlessproject3-dev-231312-deployment",
-          "s3Key": "amplify-builds/servproj3-6164736478465a683762-build.zip"
+          "s3Key": "amplify-builds/servproj3-366c3847784e4d73695a-build.zip"
         }
       },
       "api": {
