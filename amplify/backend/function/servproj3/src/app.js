@@ -27,12 +27,11 @@ app.get('/coins', (req, res) => {
 })
 
 app.get('/born', (_req, res) => {
-  const born = [
-    { name: 'Lord Glablok', day: '12-12-1212' }
-  ]
-  res.json({
-    born
-  })
+  let gitUrl = 'https://api.github.com/users/mysticalskeptic';
+
+  axios.get(gitUrl).then(response => {
+    res.json({ born: response.data })
+  }).catch(err => res.json({ error: err }));
 })
 
 app.get('/item', function(req, res) {
