@@ -26,7 +26,7 @@ app.get('/coins', (req, res) => {
   };
 })
 
-app.get('/born', (req, res) => {
+app.get('/born', (_req, res) => {
   let gitUrl = 'https://api.github.com/users/mysticalskeptic';
 
   axios.get(gitUrl).then(response => {
