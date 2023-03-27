@@ -5,7 +5,7 @@ export const Coins = () => {
     const [coins, updateCoins] = useState([]);
 
     const fetchCoins = async() => {
-        const data = await API.get('servproj3api', '/coins');
+        const data = await API.get('servproj3api', `/coins?start=3&limit=6`);
         updateCoins(data.coins);
     }
 
@@ -14,13 +14,11 @@ export const Coins = () => {
     }, []);
 
     return (
-        <>
-            {coins.map((x, i) => (
-                <div key={i}>
-                    <h3>{x.name} - "{x.symbol}"</h3>
-                    <h4>${x.price_usd}</h4>
-                </div>
-            ))}
-        </>
+        coins.map((x, index) => (
+            <div key={index}>
+                <h3>{x.name} - "{x.symbol}"</h3>
+                <h4>${x.price_usd}</h4>
+            </div>
+        ))
     )
 }

@@ -3,12 +3,10 @@ const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const axios = require('axios')
 
-// declare a new express app
 const app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-// Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "*")
@@ -16,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/coins', (req, res) => {
-  let apiUrl = `https://api.coinlore.com/api/tickers?start=0&limit=10`
+  let apiUrl = `https://api.coinlore.com/api/tickers?start=0&limit=10`;
   
   if (req.apiGateway && req.apiGateway.event.queryStringParameters) {
     const { start = 0, limit = 10 } = req.apiGateway.event.queryStringParameters;
@@ -28,7 +26,7 @@ app.get('/coins', (req, res) => {
   };
 })
 
-app.get('/born', (req, res) => {
+app.get('/born', (_req, res) => {
   const born = [
     { name: 'Lord Glablok', day: '12-12-1212' }
   ]
