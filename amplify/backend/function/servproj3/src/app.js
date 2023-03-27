@@ -26,71 +26,10 @@ app.get('/coins', (req, res) => {
   };
 })
 
-app.get('/born', (_req, res) => {
+app.get('/born', (req, res) => {
   let gitUrl = 'https://api.github.com/users/mysticalskeptic';
 
   axios.get(gitUrl).then(response => {
     res.json({ born: response.data })
   }).catch(err => res.json({ error: err }));
 })
-
-app.get('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
-});
-
-app.get('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
-});
-
-/****************************
-* Example post method *
-****************************/
-
-app.post('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
-
-app.post('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example put method *
-****************************/
-
-app.put('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-app.put('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example delete method *
-****************************/
-
-app.delete('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
-
-app.delete('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
-
-app.listen(3000, function() {
-    console.log("App started")
-});
-
-// Export the app object. When executing the application local this does nothing. However,
-// to port it to AWS Lambda we will create a wrapper around that will load the app from
-// this file
-module.exports = app
